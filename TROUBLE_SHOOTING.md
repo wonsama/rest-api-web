@@ -20,7 +20,6 @@ gh auth login
 # --public / --private 선택 가능
 gh repo create wonsama/rest-api-web --public
 
-
 # 저장소 초기화 및 커밋
 git init -b main
 git add . && git commit -m "initial commit"
