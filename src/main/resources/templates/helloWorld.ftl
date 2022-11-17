@@ -1,0 +1,1 @@
+<div style='color:pink'>hello page</div>
