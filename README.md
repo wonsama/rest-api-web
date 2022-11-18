@@ -1,5 +1,13 @@
 # README
 
+REST API 를 학습하기 위한 프로젝트
+
+챕터별 개별 branch 가 작성 되어 있으며, 해당 챕터단위로 branch를 변경 해보면서 학습을 진행 할 수 있습니다.
+
+최종 작업 진행 사항은 물론 `main` branch 에 병합되어 있으니 참조 바랍니다.
+
+> 출처 : [스프링 부트 REST API WEB 프로젝트](https://ws-pace.tistory.com/64)
+
 ## 프로젝트 생성
 
 테스트 환경
@@ -22,6 +30,10 @@ spring-boot 의존성
 - spring-boot-starter-actuator
 - spring-boot-devtools
 
+(temp)
+
+- h2
+
 추가 의존성
 
 > `jjwt` moved to `jjwt-api`
@@ -40,20 +52,3 @@ spring-boot 의존성
 앱 기동 (SERVER)
 
 `mvn spring-boot:run`
-
-## 사용하는 시점에 주석해제
-
-`spring-boot-starter-security` - 자동적으로 basic auth 가 포함된다.
-`spring-boot-starter-data-jpa` - datasource 설정이 반드시 되어야 된다.
-
-## HOT DEPLOY
-
-> 좀 더 찾아 봐야 될 것 같음. 소스 수정해도 재배포 안됨 음 ..
-> 출처 : [VSCode 에서 Spring Boot Hot Swapping](https://velog.io/@nonz/VSCode-%EC%97%90%EC%84%9C-Spring-Boot-Hot-Swapping)
-
-- ~~`spring-boot-devtools` 플러그인 추가~~
-- ~~vscode 설정 : java > debug > settings : Hot Code Replace `auto`로 설정~~
-
-## 출처
-
-- [스프링 부트 REST API WEB 프로젝트](https://ws-pace.tistory.com/64)

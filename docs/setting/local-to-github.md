@@ -1,4 +1,4 @@
-# TROUBLE SHOOTING
+# local-to-github
 
 ## Adding locally hosted code to GitHub
 
@@ -30,19 +30,4 @@ git remote -v
 
 # 저장소 푸시
 git push origin main
-```
-
-## Spring Boot 최초 실행 시 'Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured. '
-
-> `spring-boot-starter-data-jpa` 의존성을 추가하면 반드시 datasource 설정을 해줘야 한다
-> 우선 주석 처리 하고 사용할 때 관련 정보를 yml 또는 properties 에 추가하도록 하자
-
-```yml
-# application.properties 에 다음과 같이 JDBC url을 추가해준다. [Mysql 일 경우] (Oracle이나 다른 DB는 응용하세요.)
-
-# DataSource
-spring.datasource.url=jdbc:mysql://localhost:3306/[DB스키마명]?autoReconnect=true
-spring.datasource.username=[DB접속Id]
-spring.datasource.password=[DB접속Password]
-spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 ```

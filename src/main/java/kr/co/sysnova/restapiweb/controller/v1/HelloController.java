@@ -1,4 +1,4 @@
-package kr.co.sysnova.restapiweb.controller;
+package kr.co.sysnova.restapiweb.controller.v1;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

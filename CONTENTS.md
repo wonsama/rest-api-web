@@ -1,7 +1,7 @@
 # CONTENTS
 
 1. [(완료) 환경구성 및 helloworld 출력](https://ws-pace.tistory.com/64)
-2. H2 DB 연동
+2. [H2 DB 연동](https://ws-pace.tistory.com/65)
 3. Swagger API 문서 연동
 4. REST API 설계
 5. RestControllerAdvice를 이용한 통합 예외 처리
