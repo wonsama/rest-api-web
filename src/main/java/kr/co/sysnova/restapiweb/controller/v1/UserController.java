@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import kr.co.sysnova.restapiweb.advice.exception.UserNotFoundException;
 import kr.co.sysnova.restapiweb.entity.User;
 import kr.co.sysnova.restapiweb.repository.UserJpaRepo;
 import kr.co.sysnova.restapiweb.response.CommonResult;
@@ -32,8 +33,28 @@ public class UserController {
     @Operation(summary = "회원 단건 검색", description = "userId로 회원을 조회합니다.")
     @GetMapping("/user/{userId}")
     public SingleResult<User> findUserByKey(
-            @Parameter(name = "userId", required = true) @PathVariable Long userId) {
+            @Parameter(name = "userId", required = true) @PathVariable Long userId) throws Exception {
+        // 값이 없으면 값을 null 로 설정하여 성공 처리 된다
         return responseService.getSingleResult(userJpaRepo.findById(userId).orElse(null));
+        // return
+        // responseService.getSingleResult(userJpaRepo.findById(userId).orElseThrow(UserNotFoundException::new));
+    }
+
+    @Operation(summary = "회원 단건 검색", description = "userId로 회원을 조회합니다.")
+    @GetMapping("/user/id/{userId}")
+    public SingleResult<User> findUserById(@Parameter(name = "회원 ID", required = true) @PathVariable Long userId) {
+        // 값이 없으면 오류를 발생 시킨다
+        return responseService.getSingleResult(userJpaRepo.findById(userId).orElseThrow(UserNotFoundException::new));
+    }
+
+    @Operation(summary = "회원 단건 검색 (이메일)", description = "이메일로 회원을 조회합니다.")
+    @GetMapping("/user/email/{email}")
+    public SingleResult<User> findUserByEmail(@Parameter(name = "회원 이메일", required = true) @PathVariable String email) {
+        User user = userJpaRepo.findByEmail(email);
+        if (user == null)
+            throw new UserNotFoundException();
+        else
+            return responseService.getSingleResult(user);
     }
 
     @Operation(summary = "회원 목록 조회", description = "모든 회원을 조회합니다.")
@@ -65,6 +86,7 @@ public class UserController {
                 .email(email)
                 .name(name)
                 .build();
+
         return responseService.getSingleResult(userJpaRepo.save(user));
     }
 
