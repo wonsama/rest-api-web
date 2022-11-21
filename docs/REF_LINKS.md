@@ -1,5 +1,13 @@
 # REF_LINKS
 
+> 최신 검색 글을 맨 위로 배치
+> 일단 첨부터 끝까지 정독 한 이후 링크 정보를 기록
+> (나중에 시간될 때 보겠다는 생각... 거의 보지 않게 됨)
+
+- [springdoc-openapi v1.6.13](https://springdoc.org/)
+- [The ultimate guide on DB-generated IDs in JPA Entities](https://www.jpa-buddy.com/blog/the-ultimate-guide-on-db-generated/)
+- [JPA 플러시 정리](https://cheese10yun.github.io/jpa-flush/)
+- [[JPA] 기본키 자동 생성 전략(Primary Key)](https://bamdule.tistory.com/243)
 - [[JPA] 기본 키 생성 전략과 각 전략의 차이 - GenerationType](https://newwisdom.tistory.com/90)
 - [Spring boot에서 H2 DB 3가지 모드 사용하기(embedded, In-Memory, Server)](https://kukim.tistory.com/105)
 - [H2 database GenerationType.IDENTITY 오류](https://selgii.tistory.com/53) : 1.4.x 에서는 상관 없었으나, 2.0.x로 바뀌면서 문제가 되었다고 함
