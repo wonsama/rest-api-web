@@ -1,5 +1,7 @@
 # ch1
 
+환경 구성 및 Helloworld 출력
+
 ## 사용하는 시점에 주석해제
 
 `spring-boot-starter-security` - 자동적으로 basic auth 가 포함된다.

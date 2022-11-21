@@ -1,5 +1,16 @@
 # TROUBLE SHOOTING
 
+## [오류해결-swagger] Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.NullPointerException
+
+> [Failed to start bean 'documentationPluginsBootstrapper'](https://goyunji.tistory.com/137)
+
+Spring boot 2.6버전 이후에 spring.mvc.pathmatch.matching-strategy 값이 ant_apth_matcher에서 path_pattern_parser로 변경되면서 몇몇 라이브러리에서 오류가 발생하고 있다!
+application.properties 파일에서 한 줄을 추가하자.
+
+```properties
+spring.mvc.pathmatch.matching-strategy=ant_path_matcher
+```
+
 ## 파일 경로 바꾸기
 
 `url: jdbc:h2:~/rest-api-web`

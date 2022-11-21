@@ -14,3 +14,22 @@ spring:
         hbm2ddl:
           auto: create
     show-sql: true
+
+# swagger setting
+# 참조 : https://wildeveloperetrain.tistory.com/156
+springdoc:
+  version: v1
+  api-docs:
+    path: /api-docs
+    groups:
+      enabled: true
+  packages-to-scan:
+    - kr.co.sysnova.restapiweb.controller
+  swagger-ui:
+    path: /api-docs
+    tags-sorter: alpha
+    operations-sorter: alpha
+  cache:
+    disabled: true
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8

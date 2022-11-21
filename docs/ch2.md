@@ -1,5 +1,7 @@
 # ch2
 
+H2 DB 연동
+
 ## hibernate.hbm2ddl.auto 옵션
 
 create : 애플리케이션이 켜질 때 DB도 지우고 새로 만든다
