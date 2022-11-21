@@ -4,6 +4,10 @@
 > 일단 첨부터 끝까지 정독 한 이후 링크 정보를 기록
 > (나중에 시간될 때 보겠다는 생각... 거의 보지 않게 됨)
 
+- [[Java] Optional이란? Optional 개념 및 사용법 - (1/2)](https://mangkyu.tistory.com/70)
+- [[Java] Optional이란? Optional 개념 및 사용법 - (2/2)](https://mangkyu.tistory.com/203)
+- [자바(Java) 8: 람다식에서 콜론 두개 (:: – 이중 콜론 연산자, 메소드 참조 표현식)의 용도와 사용법](http://yoonbumtae.com/?p=2776)
+- [Optional .orElseThrow(Function) 사용법](https://krksap.tistory.com/1515)
 - [springdoc-openapi v1.6.13](https://springdoc.org/)
 - [The ultimate guide on DB-generated IDs in JPA Entities](https://www.jpa-buddy.com/blog/the-ultimate-guide-on-db-generated/)
 - [JPA 플러시 정리](https://cheese10yun.github.io/jpa-flush/)
