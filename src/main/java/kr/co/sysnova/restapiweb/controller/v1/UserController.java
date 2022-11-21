@@ -1,54 +1,77 @@
 package kr.co.sysnova.restapiweb.controller.v1;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import kr.co.sysnova.restapiweb.entity.User;
 import kr.co.sysnova.restapiweb.repository.UserJpaRepo;
+import kr.co.sysnova.restapiweb.response.CommonResult;
+import kr.co.sysnova.restapiweb.response.ListResult;
+import kr.co.sysnova.restapiweb.response.SingleResult;
+import kr.co.sysnova.restapiweb.service.ResponseService;
+import lombok.RequiredArgsConstructor;
 
 @Tag(name = "사용자", description = "사용자 관련 API")
 @RequestMapping("/v1")
 @RestController
+@RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    UserJpaRepo userJpaRepo;
+    private final UserJpaRepo userJpaRepo;
+    private final ResponseService responseService;
 
-    @Operation(summary = "모든 회원 조회", description = "모든 회원 목록을 조회합니다.")
+    @Operation(summary = "회원 단건 검색", description = "userId로 회원을 조회합니다.")
+    @GetMapping("/user/{userId}")
+    public SingleResult<User> findUserByKey(
+            @Parameter(name = "userId", required = true) @PathVariable Long userId) {
+        return responseService.getSingleResult(userJpaRepo.findById(userId).orElse(null));
+    }
+
+    @Operation(summary = "회원 목록 조회", description = "모든 회원을 조회합니다.")
     @GetMapping("/users")
-    public List<User> findAllUser() {
-        return userJpaRepo.findAll();
+    public ListResult<User> findAllUser() {
+        return responseService.getListResult(userJpaRepo.findAll());
     }
 
     @Operation(summary = "회원 등록", description = "회원을 등록합니다.")
     @PostMapping("/user")
-    public User save(@RequestParam String email, @RequestParam String name) {
+    public SingleResult<User> save(
+            @Parameter(name = "email", required = true) @RequestParam String email,
+            @Parameter(name = "name", required = true) @RequestParam String name) {
         User user = User.builder()
                 .email(email)
                 .name(name)
                 .build();
-
-        return userJpaRepo.save(user);
+        return responseService.getSingleResult(userJpaRepo.save(user));
     }
 
-    @Operation(summary = "회원 검색 (이름)", description = "이름으로 회원을 검색합니다.")
-    @GetMapping("/findUserByName/{name}")
-    public List<User> findUserByName(@PathVariable String name) {
-        return userJpaRepo.findByName(name);
+    @Operation(summary = "회원 수정", description = "회원 정보를 수정합니다.")
+    @PutMapping("/user")
+    public SingleResult<User> modify(
+            @Parameter(name = "userId", required = true) @RequestParam Long userId,
+            @Parameter(name = "email", required = true) @RequestParam String email,
+            @Parameter(name = "name", required = true) @RequestParam String name) {
+        User user = User.builder()
+                .userId(userId)
+                .email(email)
+                .name(name)
+                .build();
+        return responseService.getSingleResult(userJpaRepo.save(user));
     }
 
-    @Operation(summary = "회원 검색 (이메일)", description = "이름으로 회원을 검색합니다.")
-    @GetMapping("/findUserByEmail/{email}")
-    public User findUserByEmail(@PathVariable String email) {
-        return userJpaRepo.findByEmail(email);
+    @Operation(summary = "회원 삭제", description = "회원을 삭제합니다.")
+    @DeleteMapping("/user/{userId}")
+    public CommonResult delete(@Parameter(name = "userId", required = true) @PathVariable Long userId) {
+        userJpaRepo.deleteById(userId);
+        return responseService.getSuccessResult();
     }
 }
