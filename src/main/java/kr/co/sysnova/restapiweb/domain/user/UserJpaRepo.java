@@ -1,10 +1,8 @@
-package kr.co.sysnova.restapiweb.repository;
+package kr.co.sysnova.restapiweb.domain.user;
 
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import kr.co.sysnova.restapiweb.entity.User;
 
 public interface UserJpaRepo extends JpaRepository<User, Long> {
 

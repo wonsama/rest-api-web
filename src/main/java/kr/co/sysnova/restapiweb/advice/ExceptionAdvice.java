@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import kr.co.sysnova.restapiweb.advice.exception.UserNotFoundException;
-import kr.co.sysnova.restapiweb.response.CommonResult;
+import kr.co.sysnova.restapiweb.model.response.CommonResult;
 import kr.co.sysnova.restapiweb.service.ResponseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

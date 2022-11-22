@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import kr.co.sysnova.restapiweb.response.CommonResponse;
-import kr.co.sysnova.restapiweb.response.CommonResult;
-import kr.co.sysnova.restapiweb.response.ListResult;
-import kr.co.sysnova.restapiweb.response.SingleResult;
+import kr.co.sysnova.restapiweb.model.response.CommonResponse;
+import kr.co.sysnova.restapiweb.model.response.CommonResult;
+import kr.co.sysnova.restapiweb.model.response.ListResult;
+import kr.co.sysnova.restapiweb.model.response.SingleResult;
 
 @Service
 public class ResponseService {

@@ -1,4 +1,4 @@
-package kr.co.sysnova.restapiweb.entity;
+package kr.co.sysnova.restapiweb.domain.user;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

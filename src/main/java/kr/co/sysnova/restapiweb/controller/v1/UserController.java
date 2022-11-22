@@ -13,11 +13,11 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import kr.co.sysnova.restapiweb.advice.exception.UserNotFoundException;
-import kr.co.sysnova.restapiweb.entity.User;
-import kr.co.sysnova.restapiweb.repository.UserJpaRepo;
-import kr.co.sysnova.restapiweb.response.CommonResult;
-import kr.co.sysnova.restapiweb.response.ListResult;
-import kr.co.sysnova.restapiweb.response.SingleResult;
+import kr.co.sysnova.restapiweb.domain.user.User;
+import kr.co.sysnova.restapiweb.domain.user.UserJpaRepo;
+import kr.co.sysnova.restapiweb.model.response.CommonResult;
+import kr.co.sysnova.restapiweb.model.response.ListResult;
+import kr.co.sysnova.restapiweb.model.response.SingleResult;
 import kr.co.sysnova.restapiweb.service.ResponseService;
 import lombok.RequiredArgsConstructor;
 

@@ -1,4 +1,4 @@
-package kr.co.sysnova.restapiweb.response;
+package kr.co.sysnova.restapiweb.model.response;
 
 import java.util.List;
 import lombok.Getter;
