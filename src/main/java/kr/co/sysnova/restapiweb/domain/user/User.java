@@ -34,6 +34,10 @@ public class User {
     private String email;
 
     @Column(name = "name", nullable = false, length = 100)
-    @Schema(description = "이름", defaultValue = "wonsama")
+    @Schema(description = "이름", defaultValue = "parkwon")
     private String name;
+
+    @Column(name = "nick_name", nullable = true, length = 20)
+    @Schema(description = "닉네임", defaultValue = "wonsama")
+    private String nickName;
 }
