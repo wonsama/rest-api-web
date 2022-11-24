@@ -4,6 +4,8 @@
 > 일단 첨부터 끝까지 정독 한 이후 링크 정보를 기록
 > (나중에 시간될 때 보겠다는 생각... 거의 보지 않게 됨)
 
+- [[Spring] Security WebSecurityConfigurerAdapter Deprecated 해결하기](https://devlog-wjdrbs96.tistory.com/434)
+- [jjwt : quickstart](https://github.com/jwtk/jjwt#quickstart)
 - [JUnit5 에서 @RunWith 대신 @ExendWith 사용](https://cjred.net/2020-04-30-junit-5-runwith-extendwith/)
 - [[Java] Optional이란? Optional 개념 및 사용법 - (1/2)](https://mangkyu.tistory.com/70)
 - [[Java] Optional이란? Optional 개념 및 사용법 - (2/2)](https://mangkyu.tistory.com/203)
