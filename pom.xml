@@ -128,6 +128,13 @@
 			<version>3.12.0</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/dev.akkinoc.util/yaml-resource-bundle -->
+		<dependency>
+			<groupId>dev.akkinoc.util</groupId>
+			<artifactId>yaml-resource-bundle</artifactId>
+			<version>2.7.2</version>
+		</dependency>
+
 
 
 

@@ -35,11 +35,19 @@ public class ResponseService {
         return result;
     }
 
-    // 실패 결과만
-    public CommonResult getFailResult() {
+    // 실패 결과만 처리
+    public CommonResult getFailResult(int code, String msg) {
         CommonResult result = new CommonResult();
-        setFailResult(result);
+        result.setSuccess(false);
+        setFailResult(result, code, msg);
         return result;
+    }
+
+    // API 요청 실패 시 응답 모델을 실패 데이터로 세팅
+    private void setFailResult(CommonResult result, int code, String msg) {
+        result.setSuccess(false);
+        result.setCode(code);
+        result.setMsg(msg);
     }
 
     private void setSuccessResult(CommonResult result) {
@@ -48,9 +56,4 @@ public class ResponseService {
         result.setMsg(CommonResponse.SUCCESS.getMsg());
     }
 
-    private void setFailResult(CommonResult result) {
-        result.setSuccess(false);
-        result.setCode(CommonResponse.FAIL.getCode());
-        result.setMsg(CommonResponse.FAIL.getMsg());
-    }
 }

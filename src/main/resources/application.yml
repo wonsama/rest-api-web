@@ -14,6 +14,11 @@ spring:
         hbm2ddl:
           auto: create
     show-sql: true
+  messages:
+    # 여기서 basename이 i18n/exception으로 설정되어있는데 이는
+    # "resources/i18n/" path에서 "exception_로케일.yml" 파일을 읽어서 해당 내용으로 표시하라는 뜻
+    basename: i18n/exception
+    encoding: UTF-8
 
 # swagger setting
 # 참조 : https://wildeveloperetrain.tistory.com/156
