@@ -13,9 +13,7 @@ import kr.co.sysnova.restapiweb.advice.exception.UserNotFoundException;
 import kr.co.sysnova.restapiweb.model.response.CommonResult;
 import kr.co.sysnova.restapiweb.service.ResponseService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @RequiredArgsConstructor
 @RestControllerAdvice
 public class ExceptionAdvice {
