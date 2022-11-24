@@ -4,6 +4,7 @@
 > 일단 첨부터 끝까지 정독 한 이후 링크 정보를 기록
 > (나중에 시간될 때 보겠다는 생각... 거의 보지 않게 됨)
 
+- [JUnit5 에서 @RunWith 대신 @ExendWith 사용](https://cjred.net/2020-04-30-junit-5-runwith-extendwith/)
 - [[Java] Optional이란? Optional 개념 및 사용법 - (1/2)](https://mangkyu.tistory.com/70)
 - [[Java] Optional이란? Optional 개념 및 사용법 - (2/2)](https://mangkyu.tistory.com/203)
 - [자바(Java) 8: 람다식에서 콜론 두개 (:: – 이중 콜론 연산자, 메소드 참조 표현식)의 용도와 사용법](http://yoonbumtae.com/?p=2776)

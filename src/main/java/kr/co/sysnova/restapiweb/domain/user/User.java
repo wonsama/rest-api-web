@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import kr.co.sysnova.restapiweb.domain.BaseTimeEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,7 +23,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Table(name = "tb_user") // user 대신 tb_user 를 사용하도록 함
 @Schema(description = "사용자")
-public class User {
+public class User extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
