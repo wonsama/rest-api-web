@@ -6,9 +6,11 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import kr.co.sysnova.restapiweb.advice.exception.EmailLoginFailedException;
 import kr.co.sysnova.restapiweb.advice.exception.UserNotFoundException;
 import kr.co.sysnova.restapiweb.domain.user.User;
 import kr.co.sysnova.restapiweb.domain.user.UserJpaRepo;
+import kr.co.sysnova.restapiweb.dto.user.UserLoginResponseDto;
 import kr.co.sysnova.restapiweb.dto.user.UserRequestDto;
 import kr.co.sysnova.restapiweb.dto.user.UserResponseDto;
 import lombok.AllArgsConstructor;
@@ -63,5 +65,21 @@ public class UserService {
     @Transactional
     public void delete(Long id) {
         userJpaRepo.deleteById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public UserLoginResponseDto login(String email, String password) {
+        User user = userJpaRepo.findByEmail(email).orElseThrow(EmailLoginFailedException::new);
+        if (!passwordEncoder.matches(password, user.getPassword()))
+            throw new EmailLoginFailedCException();
+        return new UserLoginResponseDto(user);
+    }
+
+    @Transactional
+    public Long signup(UserSignupRequestDto userSignupDto) {
+        if (userJpaRepo.findByEmail(userSignupDto.getEmail()).orElse(null) == null)
+            return userJpaRepo.save(userSignupDto.toEntity()).getUserId();
+        else
+            throw new EmailSignupFailedException();
     }
 }

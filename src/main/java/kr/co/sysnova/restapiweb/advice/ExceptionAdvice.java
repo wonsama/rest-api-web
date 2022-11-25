@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import kr.co.sysnova.restapiweb.advice.exception.EmailLoginFailedException;
 import kr.co.sysnova.restapiweb.advice.exception.UserNotFoundException;
 import kr.co.sysnova.restapiweb.model.response.CommonResult;
 import kr.co.sysnova.restapiweb.service.ResponseService;
@@ -33,6 +34,16 @@ public class ExceptionAdvice {
     protected CommonResult defaultException(HttpServletRequest request, Exception e) {
         return responseService.getFailResult(Integer.parseInt(getMessage("unKnown.code")),
                 getMessage("unKnown.msg"));
+    }
+
+    /***
+     * 유저 이메일 로그인 실패 시 발생시키는 예외
+     */
+    @ExceptionHandler(EmailLoginFailedException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    protected CommonResult emailLoginFailedException(HttpServletRequest request, EmailLoginFailedException e) {
+        return responseService.getFailResult(
+                Integer.parseInt(getMessage("emailLoginFailed.code")), getMessage("emailLoginFailed.msg"));
     }
 
     private String getMessage(String code) {
